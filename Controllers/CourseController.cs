@@ -24,6 +24,11 @@ namespace PortfolioDT191G.Controllers
         // GET: Course
         public async Task<IActionResult> Index()
         {
+            //Check if _context is null
+            if (_context.Courses == null)
+            {
+                return NotFound();
+            }
             return View(await _context.Courses.ToListAsync());
         }
 
@@ -31,6 +36,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Courses == null)
             {
                 return NotFound();
             }
@@ -71,6 +82,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Courses == null)
             {
                 return NotFound();
             }
@@ -126,6 +143,12 @@ namespace PortfolioDT191G.Controllers
                 return NotFound();
             }
 
+            //Check if _context is null
+            if (_context.Courses == null)
+            {
+                return NotFound();
+            }
+
             var courseModel = await _context.Courses
                 .FirstOrDefaultAsync(m => m.CourseId == id);
             if (courseModel == null)
@@ -141,6 +164,11 @@ namespace PortfolioDT191G.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Check if _context is null
+            if (_context.Courses == null)
+            {
+                return NotFound();
+            }
             var courseModel = await _context.Courses.FindAsync(id);
             if (courseModel != null)
             {
@@ -153,6 +181,11 @@ namespace PortfolioDT191G.Controllers
 
         private bool CourseModelExists(int id)
         {
+            //Check if _context is null
+            if (_context.Courses == null)
+            {
+                return false;
+            }
             return _context.Courses.Any(e => e.CourseId == id);
         }
     }

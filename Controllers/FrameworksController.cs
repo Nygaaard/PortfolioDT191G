@@ -24,6 +24,11 @@ namespace PortfolioDT191G.Controllers
         // GET: Frameworks
         public async Task<IActionResult> Index()
         {
+            //Check if _context is null
+            if (_context.Frameworks == null)
+            {
+                return NotFound();
+            }
             return View(await _context.Frameworks.ToListAsync());
         }
 
@@ -31,6 +36,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Frameworks == null)
             {
                 return NotFound();
             }
@@ -71,6 +82,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Frameworks == null)
             {
                 return NotFound();
             }
@@ -126,6 +143,12 @@ namespace PortfolioDT191G.Controllers
                 return NotFound();
             }
 
+            //Check if _context is null
+            if (_context.Frameworks == null)
+            {
+                return NotFound();
+            }
+
             var frameworkModel = await _context.Frameworks
                 .FirstOrDefaultAsync(m => m.FrameworkId == id);
             if (frameworkModel == null)
@@ -141,6 +164,11 @@ namespace PortfolioDT191G.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Check if _context is null
+            if (_context.Frameworks == null)
+            {
+                return NotFound();
+            }
             var frameworkModel = await _context.Frameworks.FindAsync(id);
             if (frameworkModel != null)
             {
@@ -153,6 +181,11 @@ namespace PortfolioDT191G.Controllers
 
         private bool FrameworkModelExists(int id)
         {
+            //Check if _context is null
+            if (_context.Frameworks == null)
+            {
+                return false;
+            }
             return _context.Frameworks.Any(e => e.FrameworkId == id);
         }
     }
