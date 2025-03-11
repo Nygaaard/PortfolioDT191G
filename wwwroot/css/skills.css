@@ -1,0 +1,114 @@
+/*SKILL SECTION*/
+.skill-course-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Sektioner */
+.skills-section,
+.course-section {
+    width: 50%;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Sektionstitlar */
+.skills-section h2,
+.course-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+/* Skills layout */
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* Kategorirubriker */
+.skills-container h3 {
+    font-size: 1.4rem;
+    color: #b0b0b0;
+    border-bottom: 2px solid #3A3A8E;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Enskilda skills */
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Skill-item kort */
+.skill-item {
+    background: #2f2f2f;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #e0e0e0;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease-in-out, background 0.3s ease;
+    min-width: 180px
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    background: #3a3a3a;
+}
+
+/* Kurssektion styling */
+.course-section article {
+    background: #2f2f2f;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease-in-out, background 0.3s ease;
+}
+
+.course-section article:hover {
+    transform: translateY(-5px);
+    background: #3a3a3a;
+}
+
+/* Kursrubriker */
+.course-section h4 {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+/* Kursdetaljer */
+.course-section p {
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+@media (max-width: 768px) {
+    .skill-course-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .skills-section,
+    .course-section {
+        width: 100%;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
