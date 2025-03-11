@@ -31,15 +31,14 @@
                 <p>Color mode</p>
             </div>
             <div class="login-container above-items">
-                <i class="fa-regular fa-user login"></i>
+
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <li class="login">
-                        <a asp-area="Identity" asp-page="/Account/Logout">Logout</a>
-                    </li>
+                    <partial name="_LoginPartial" />
                 }
                 else
                 {
+                    <i class="fa-regular fa-user login"></i>
                     <li class="login">
                         <a asp-area="Identity" asp-page="/Account/Login">Login</a>
                     </li>
@@ -59,9 +58,10 @@
             @if (SignInManager.IsSignedIn(User))
             {
                 <ul class="menu">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-controller="Course" asp-action="Index">Courses</a></li>
-                    <li><a asp-controller="Framework" asp-action="Index">Frameworks</a></li>
-                    <li><a asp-controller="Skill" asp-action="Index">Skills</a></li>
+                    <li><a asp-controller="Skills" asp-action="Index">Skills</a></li>
+                    <li><a asp-controller="Frameworks" asp-action="Index">Frameworks</a></li>
                 </ul>
             }
             else
@@ -82,7 +82,6 @@
     <footer>
 
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
