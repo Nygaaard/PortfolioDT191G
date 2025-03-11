@@ -28,6 +28,11 @@ namespace PortfolioDT191G.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
+            //Check if _context is null
+            if (_context.Projects == null)
+            {
+                return NotFound();
+            }
             return View(await _context.Projects.ToListAsync());
         }
 
@@ -35,6 +40,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Projects == null)
             {
                 return NotFound();
             }
@@ -102,6 +113,12 @@ namespace PortfolioDT191G.Controllers
                 return NotFound();
             }
 
+            //Check if _context is null
+            if (_context.Projects == null)
+            {
+                return NotFound();
+            }
+
             var projectModel = await _context.Projects.FindAsync(id);
             if (projectModel == null)
             {
@@ -118,6 +135,12 @@ namespace PortfolioDT191G.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("ProjectId,Title,ImageName,Description,Url")] ProjectModel projectModel)
         {
             if (id != projectModel.ProjectId)
+            {
+                return NotFound();
+            }
+
+            //Check if _context is null
+            if (_context.Projects == null)
             {
                 return NotFound();
             }
@@ -153,6 +176,12 @@ namespace PortfolioDT191G.Controllers
                 return NotFound();
             }
 
+            //Check if _context is null
+            if (_context.Projects == null)
+            {
+                return NotFound();
+            }
+
             var projectModel = await _context.Projects
                 .FirstOrDefaultAsync(m => m.ProjectId == id);
             if (projectModel == null)
@@ -168,6 +197,11 @@ namespace PortfolioDT191G.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Check if _context is null
+            if (_context.Projects == null)
+            {
+                return NotFound();
+            }
             var projectModel = await _context.Projects.FindAsync(id);
             if (projectModel != null)
             {
@@ -180,6 +214,11 @@ namespace PortfolioDT191G.Controllers
 
         private bool ProjectModelExists(int id)
         {
+            //Check if _context is null
+            if (_context.Projects == null)
+            {
+                return false;
+            }
             return _context.Projects.Any(e => e.ProjectId == id);
         }
     }
