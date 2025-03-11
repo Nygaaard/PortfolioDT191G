@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PortfolioDT191G.Models.HomeModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -16,5 +18,58 @@
         <div>
             <img src="images/laptop.jpg" alt="Laptop" class="laptop">
         </div>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <h2>About</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti nobis officia iusto veniam incidunt nemo
+        dignissimos, nulla ipsa impedit dolorem distinctio ab laboriosam vel ex amet suscipit odio non asperiores,
+        ratione sit tenetur ducimus. Neque, amet. Neque dignissimos dolore voluptatibus velit exercitationem provident
+        optio. Delectus at nostrum natus itaque voluptatibus enim accusamus excepturi perferendis commodi dolor quod
+        repudiandae saepe facere aliquam cum dicta totam, quidem provident deserunt? Voluptatibus maiores animi
+        voluptatum architecto ab commodi, officia aspernatur dolore nobis unde? Rem corrupti facere neque porro
+        explicabo nam quasi quae architecto sit eaque amet tempore laudantium quo consequuntur minima, expedita ullam.
+        Molestiae!</p>
+    <a href="files/CV.pdf" download="Andreas_Nygard_CV.pdf" class="download-btn">
+        Download my resume
+        <i class="fa-solid fa-download"></i>
+    </a>
+</section>
+
+<section class="skill-course-container" id="skills" class="notranslate">
+    <div class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-container">
+                <h3>Språk:</h3>
+                @foreach (var item in Model.Skills)
+                {
+                    <article class="skill-item">
+                        <h4>@item.Name</h4>
+                    </article>
+                }
+            </div>
+            <div class="skill-container">
+                <h3>Ramverk:</h3>
+                @foreach (var item in Model.Frameworks)
+                {
+                    <article class="skill-item">
+                        <h4>@item.Name</h4>
+                        <p class="skill-text">@item.Description</p>
+                    </article>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="course-section">
+        <h2>Courses</h2>
+        @foreach (var item in Model.Courses)
+        {
+            <article>
+                <h4>@item.Name</h4>
+                <p>Kursplan: <a href="@item.Syllabus" target="_blank">Klicka här</a></p>
+            </article>
+        }
     </div>
 </section>
