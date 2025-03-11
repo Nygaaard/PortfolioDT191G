@@ -1,0 +1,22 @@
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .upper-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skill-course-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .skills-section,
+    .course-section {
+        width: 100%;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
