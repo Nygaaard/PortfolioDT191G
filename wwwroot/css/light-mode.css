@@ -1,0 +1,62 @@
+/*LIGHT MODE*/
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.light-mode .above {
+    background: #f0f0f0;
+}
+
+.light-mode .menu li a {
+    color: #333;
+}
+
+.light-mode .menu li a:hover {
+    color: #555;
+}
+
+.light-mode .contact,
+.light-mode .download-btn {
+    background-color: #3A3A8E;
+    color: white;
+}
+
+.light-mode .contact:hover,
+.light-mode .download-btn:hover,
+.light-mode .download-btn {
+    background-color: #292967;
+}
+
+.light-mode footer,
+.light-mode .project-section,
+.light-mode .contact-form-section {
+    background-color: #fff;
+}
+
+.light-mode .skill-container h3,
+.light-mode .course-section h2,
+.light-mode .skills-section h2,
+.light-mode .project-section h2,
+.light-mode footer p,
+.light-mode .login-container li a,
+.light-mode .logo a,
+.light-mode .contact-form-section h2 {
+    color: #000;
+}
+
+.light-mode .course-section article {
+    background-color: #2f2f2f;
+}
+
+.light-mode .course-section article a {
+    color: #fff;
+}
+
+.light-mode .course-section article a {
+    color: #666363;
+}
+
+.light-mode .skill-course-container {
+    box-shadow: 0 4px 10px rgba(150, 150, 150, 0.5);
+}
