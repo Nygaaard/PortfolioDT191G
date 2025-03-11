@@ -19,17 +19,19 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        //Hämta data från databasen
-        var courses = _context.Courses.ToList(); //Hämta Courses
-        var skills = _context.Skills.ToList(); // Hämta Skills
-        var frameworks = _context.Frameworks.ToList(); // Hämta Ramverk
+        //Hämta data from database
+        var courses = _context.Courses.ToList(); //Get Courses
+        var skills = _context.Skills.ToList(); // Get Skills
+        var frameworks = _context.Frameworks.ToList(); // Get Frameworks
+        var projects = _context.Projects.ToList(); // Get Projects
 
-        //Skapa ViewModel
+        //Create ViewModel
         var viewModel = new HomeModel
         {
             Courses = courses,
             Skills = skills,
-            Frameworks = frameworks
+            Frameworks = frameworks,
+            Projects = projects
         };
         return View(viewModel);
     }

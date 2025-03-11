@@ -13,4 +13,5 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<CourseModel> Courses { get; set; }
     public DbSet<SkillModel> Skills { get; set; }
     public DbSet<FrameworkModel> Frameworks { get; set; }
+    public DbSet<ProjectModel> Projects { get; set; }
 }
