@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,18 @@ using PortfolioDT191G.Models;
 
 namespace PortfolioDT191G.Controllers
 {
+    [Authorize]
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly string wwwRootPath;
 
-        public ProjectsController(ApplicationDbContext context)
+        public ProjectsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
+            wwwRootPath = hostEnvironment.WebRootPath;
         }
 
         // GET: Projects
@@ -54,10 +60,33 @@ namespace PortfolioDT191G.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectId,Title,ImageName,Description,Url")] ProjectModel projectModel)
+        public async Task<IActionResult> Create([Bind("ProjectId,Title,ImageFile,Description,Url")] ProjectModel projectModel)
         {
             if (ModelState.IsValid)
             {
+                //Upload image and store in database
+                //Check for image
+                if (projectModel.ImageFile != null)
+                {
+                    //Generate unique filename
+                    string fileName = Path.GetFileNameWithoutExtension(projectModel.ImageFile.FileName);
+                    string extension = Path.GetExtension(projectModel.ImageFile.FileName);
+
+                    projectModel.ImageName = fileName = fileName.Replace(" ", String.Empty) + DateTime.Now.ToString("yymmssfff") + extension;
+
+                    string path = Path.Combine(wwwRootPath + "/images", fileName);
+
+                    //Store in file system
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await projectModel.ImageFile.CopyToAsync(fileStream);
+                    }
+                }
+                else
+                {
+                    projectModel.ImageName = "empty.jpg";
+                }
+
                 _context.Add(projectModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

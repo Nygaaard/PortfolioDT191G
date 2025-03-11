@@ -73,3 +73,19 @@
         }
     </div>
 </section>
+<section class="project-section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        @foreach (var item in Model.Projects)
+        {
+            <article class="project-container">
+                <h3>@item.Title</h3>
+                <a href="images/@Html.DisplayFor(modelItem => item.ImageName)">
+                    <img class="project-img" src="images/@Html.DisplayFor(modelItem => item.ImageName)"
+                        alt="@item.ImageName"></a>
+                <p class="project-text">@item.Description</p>
+                <a class="project-link" href="@item.Url">Link to website</a>
+            </article>
+        }
+    </div>
+</section>
