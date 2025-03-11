@@ -37,11 +37,11 @@
     </a>
 </section>
 
-<section class="skill-course-container" id="skills" class="notranslate">
+<section class="skill-course-container notranslate" id="skills">
     <div class="skills-section">
         <h2>Skills</h2>
         <div class="skills-container">
-            <div class="skill-container">
+            <div class="skill-container" class="notranslate">
                 <h3>Språk:</h3>
                 @foreach (var item in Model.Skills)
                 {
@@ -84,7 +84,7 @@
                     <img class="project-img" src="images/@Html.DisplayFor(modelItem => item.ImageName)"
                         alt="@item.ImageName"></a>
                 <p class="project-text">@item.Description</p>
-                <a class="project-link" href="@item.Url">Link to website</a>
+                <a class="project-link" href="@item.Url" target="_blank">Link to website</a>
             </article>
         }
     </div>

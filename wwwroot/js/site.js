@@ -33,3 +33,29 @@ lightModeToggle.addEventListener('click', function () {
     }
 });
 
+//Function to show/hide widget
+function toggleTranslateWidget() {
+    var translateElement = document.getElementById("google_translate_element");
+    if (translateElement.style.display === "none") {
+        translateElement.style.display = "block"; //Show widget
+    } else {
+        translateElement.style.display = "none"; //Hide widget
+    }
+}
+
+function changeLanguage() {
+    var select = document.querySelector(".goog-te-combo");
+    var langText = document.getElementById("lang-text");
+
+    if (select) {
+        if (select.value === "en") {
+            select.value = "sv"; //Switch language to swedish
+            langText.innerText = "Språk"; 
+        } else {
+            select.value = "en"; //Switch to english
+            langText.innerText = "Language";
+        }
+        select.dispatchEvent(new Event("change")); //Activate translation
+    }
+}
+
