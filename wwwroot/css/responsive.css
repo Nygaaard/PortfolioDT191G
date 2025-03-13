@@ -1,8 +1,35 @@
 /* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
     .upper-section {
+        padding: 2rem 1rem;
+        border-radius: 0;
+        min-height: auto;
+    }
+
+    .upper-section div img {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+
+    .intro h1,
+    .intro p {
+        font-size: 1.5em;
+        margin: 0.5rem 0;
+    }
+
+    .intro-container {
         flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .intro {
         text-align: center;
+    }
+
+    .contact {
+        width: 100%;
+        padding: 0.8rem;
     }
 
     .skill-course-container {

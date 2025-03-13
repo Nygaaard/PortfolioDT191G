@@ -7,13 +7,14 @@
 <section class="upper-section">
     <div class="intro-container" id="home">
         <div class="intro">
-            <h1 class="first">Hi,</h1>
+            <p class="first">Hi,</p>
             <p class="second">My Name Is</p>
             <p class="third">Andreas Nygård</p>
             <br>
             <p class="fourth">Web Developer</p>
             <br>
-            <button class="contact">Contact</button>
+            <a class="contact" href="#contact">Contact</a>
+
         </div>
         <div>
             <img src="images/laptop.jpg" alt="Laptop" class="laptop">
@@ -31,7 +32,7 @@
         voluptatum architecto ab commodi, officia aspernatur dolore nobis unde? Rem corrupti facere neque porro
         explicabo nam quasi quae architecto sit eaque amet tempore laudantium quo consequuntur minima, expedita ullam.
         Molestiae!</p>
-    <a href="files/CV.pdf" download="Andreas_Nygard_CV.pdf" class="download-btn">
+    <a href="files/resume.pdf" download="Andreas_Nygard_CV.pdf" class="download-btn">
         Download my resume
         <i class="fa-solid fa-download"></i>
     </a>
@@ -67,8 +68,9 @@
         @foreach (var item in Model.Courses)
         {
             <article>
-                <h4>@item.Name</h4>
-                <p>Kursplan: <a href="@item.Syllabus" target="_blank">Klicka här</a></p>
+                <h3>@item.Name</h3>
+                <p>Syllabus: <a href="@item.Syllabus" target="_blank" class="course-link">View the syllabus for
+                        @item.Name</a></p>
             </article>
         }
     </div>
@@ -82,7 +84,7 @@
                 <h3>@item.Title</h3>
                 <a href="images/@Html.DisplayFor(modelItem => item.ImageName)">
                     <img class="project-img" src="images/@Html.DisplayFor(modelItem => item.ImageName)"
-                        alt="@item.ImageName"></a>
+                        alt="@item.Title"></a>
                 <p class="project-text">@item.Description</p>
                 <a class="project-link" href="@item.Url" target="_blank">Link to website</a>
             </article>
@@ -92,9 +94,19 @@
 <section class="contact-form-section" id="contact">
     <h2>Contact Me</h2>
     <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <div class="input-container">
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="input-container">
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="input-container">
+            <label for="message">Meddelande:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+
         <button type="submit">Send Message</button>
     </form>
 </section>

@@ -5,6 +5,7 @@
     padding: 3rem 2rem;
     border-radius: 10px;
     margin-top: 2rem;
+    box-shadow: 0 2px 8px rgba(133, 130, 130, 0.1);
 }
 
 .project-section h2 {
@@ -51,10 +52,9 @@
     margin-bottom: 1rem;
 }
 
-/* .project-img {
-    width: 100px;
-    height: 60px;
-} */
+.project-img {
+    max-height: 175px;
+}
 
 .project-container .project-text {
     font-size: 1rem;
